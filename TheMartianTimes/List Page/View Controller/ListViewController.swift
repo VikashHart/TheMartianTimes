@@ -4,6 +4,7 @@ class ListViewController: UIViewController {
 
     private let listView = ListView()
     private var viewModel: ListVCViewModeling = ListVCViewModel()
+    weak var coordinator: MainCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
