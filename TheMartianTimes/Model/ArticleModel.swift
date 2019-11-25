@@ -1,8 +1,9 @@
 import Foundation
 
-struct ArticleData: Codable {
-    let articles: [Article]
-}
+//struct ArticleData: Codable {
+//    let articles: [Article]
+//}
+typealias Articles = [Article]
 
 struct Article: Codable {
     let title: String

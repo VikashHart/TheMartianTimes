@@ -36,7 +36,7 @@ class ListView: UIView {
         label.text = "The Martian Times"
         label.font = UIFont(name: font, size: 24)
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = .black
         label.backgroundColor = .clear
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
