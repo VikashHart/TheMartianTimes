@@ -4,29 +4,31 @@ class ArticleCell: UICollectionViewCell {
 
     private var viewModel: ArticleCellViewModeling?
 
+    lazy var containerView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     lazy var articleImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.tintColor = UIColor.licorice
         imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
-    let font = "AvenirNext-Regular"
+    let font = "Georgia-Bold"
 
-    lazy var titleLabel: UILabel = {
+    lazy var articleTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: font, size: 24)
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont(name: font, size: 20)
         label.textAlignment = .left
-        label.textColor = .white
+        label.textColor = .licorice
         label.backgroundColor = .clear
-        label.layer.borderColor = UIColor.lightBlack.cgColor
-        label.layer.borderWidth = 1
-        label.layer.cornerRadius = 10
-        label.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         label.numberOfLines = 0
-        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -58,34 +60,65 @@ class ArticleCell: UICollectionViewCell {
     }
 
     private func setupViews() {
+        setupContainer()
         setupImageView()
-        setupTitleLabel()
+        setupArticleTitleLabel()
+    }
+
+    private func setupContainer() {
+        addSubview(containerView)
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            ])
     }
 
     private func setupImageView() {
-        addSubview(articleImageView)
+        containerView.addSubview(articleImageView)
         NSLayoutConstraint.activate([
-            articleImageView.topAnchor.constraint(equalTo: topAnchor),
-            articleImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            articleImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            articleImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            articleImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            articleImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             articleImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6)
             ])
     }
 
-    private func setupTitleLabel() {
-        addSubview(titleLabel)
+    private func setupArticleTitleLabel() {
+        containerView.addSubview(articleTitleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: articleImageView.bottomAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -10),
-            titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -10)
+            articleTitleLabel.topAnchor.constraint(equalTo: articleImageView.bottomAnchor, constant:  5),
+            articleTitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant:  20),
+            articleTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant:  -20),
+            articleTitleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant:  -5)
             ])
     }
 
     func updateWith(article: Article) {
         viewModel = ArticleCellViewModel(article: article)
-        articleImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: viewModel?.heightMultiplier ?? 0.6)
-        articleImageView.image = viewModel?.image
-        titleLabel.text = viewModel?.title
+        self.articleTitleLabel.text = self.viewModel?.titleString
+
+        DispatchQueue.global().async {
+            guard let imageString = self.viewModel?.urlString else { return }
+            if let url = URL(string: imageString) {
+                do {
+                    if let data = try? Data(contentsOf: url) {
+                        let image = UIImage(named: "no_image")?.withRenderingMode(.alwaysTemplate)
+
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                            self.articleImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: self.viewModel?.heightMultiplier ?? 0.6)
+                            self.articleImageView.image = UIImage(data: data) ?? image
+//                            self.articleTitleLabel.text = self.viewModel?.titleString
+                        })
+//                        DispatchQueue.main.async {
+//                            self.articleImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: self.viewModel?.heightMultiplier ?? 0.6)
+//                            self.articleImageView.image = UIImage(data: data) ?? image
+//                            self.titleLabel.text = self.viewModel?.title
+//                        }
+                    }
+                }
+            }
+        }
     }
 }

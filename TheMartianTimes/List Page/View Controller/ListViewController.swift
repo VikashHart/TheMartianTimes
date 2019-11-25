@@ -5,6 +5,8 @@ class ListViewController: UIViewController {
     private let listView = ListView()
     private var viewModel: ListVCViewModeling = ListVCViewModel()
     weak var coordinator: MainCoordinator?
+    private let refreshControl = UIRefreshControl()
+    private let activityIndicator = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,13 +19,44 @@ class ListViewController: UIViewController {
         viewModel.onDataRecieved = { [weak self] in
             self?.listView.collectionView.reloadData()
         }
+
+        viewModel.onErrorRecieved = { [weak self] in
+            self?.presentErrorAlert()
+        }
     }
 
     private func configureView() {
         view.backgroundColor = .white
+        refreshControl.tintColor = UIColor.lightBlack
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching News Data ...", attributes: [NSAttributedString.Key.font: UIFont(name: "Georgia", size: 18.0)!, NSAttributedString.Key.foregroundColor: UIColor.lightBlack])
         listView.collectionView.delegate = self
         listView.collectionView.dataSource = self
+        listView.collectionView.refreshControl = refreshControl
         configureListViewConstraints()
+        configureActions()
+    }
+
+    private func configureActions() {
+        refreshControl.addTarget(self, action: #selector(refreshNewsData), for: UIControl.Event.valueChanged)
+    }
+
+    private func presentErrorAlert() {
+        let alert = UIAlertController(title: "An error occured while fetching data.", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: { action in
+            self.viewModel.loadInitialData()
+            self.dismiss(animated: true, completion: nil)
+        }))
+
+        self.present(alert, animated: true)
+    }
+
+    @objc private func refreshNewsData() {
+        viewModel.loadInitialData()
+        self.refreshControl.endRefreshing()
+        self.activityIndicator.stopAnimating()
     }
 
     private func configureListViewConstraints() {
@@ -58,15 +91,12 @@ extension ListViewController: UICollectionViewDataSource {
 }
 
 extension ListViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let numCells: CGFloat = 3
-//        let numSpaces: CGFloat = numCells + 1
-//
-//        let screenWidth = UIScreen.main.bounds.width
-//        let screenHeight = UIScreen.main.bounds.height
-//
-//        return CGSize(width: (screenWidth - (viewModel.cellSpacing * numSpaces)) / numCells, height: screenHeight * 0.25)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        let width = (screenWidth - (viewModel.cellSpacing * viewModel.numberOfSpaces)) / viewModel.numberOfCells
+        let height: CGFloat = width * 0.8
+        return CGSize(width: width , height: height)
+    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: viewModel.cellSpacing, left: viewModel.cellSpacing, bottom: viewModel.cellSpacing, right: viewModel.cellSpacing)
