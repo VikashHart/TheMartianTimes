@@ -41,7 +41,6 @@ class ListVCViewModel: ListVCViewModeling {
             switch result {
             case .success(let data):
                 self?.articles = data
-                print(data)
             case .failure(let error):
                 print(error)
                 self?.onErrorRecieved?()

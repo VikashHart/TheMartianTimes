@@ -95,28 +95,29 @@ class ArticleCell: UICollectionViewCell {
             ])
     }
 
-    func updateWith(article: Article) {
+    func updateWith(article: FormattedArticle) {
         viewModel = ArticleCellViewModel(article: article)
-        self.articleTitleLabel.text = self.viewModel?.titleString
+        getImage(for: article) { [weak self] image in
+            self?.articleTitleLabel.text = article.title
+            self?.articleImageView.heightAnchor.constraint(equalTo: self!.widthAnchor, multiplier: article.heightMultiplier)
+            self?.articleImageView.image = image
+        }
+    }
 
-        DispatchQueue.global().async {
-            guard let imageString = self.viewModel?.urlString else { return }
-            if let url = URL(string: imageString) {
-                do {
-                    if let data = try? Data(contentsOf: url) {
-                        let image = UIImage(named: "no_image")?.withRenderingMode(.alwaysTemplate)
+    func getArticle() -> FormattedArticle {
+        return viewModel!.formattedArticle
+    }
 
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                            self.articleImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: self.viewModel?.heightMultiplier ?? 0.6)
-                            self.articleImageView.image = UIImage(data: data) ?? image
-//                            self.articleTitleLabel.text = self.viewModel?.titleString
-                        })
-//                        DispatchQueue.main.async {
-//                            self.articleImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: self.viewModel?.heightMultiplier ?? 0.6)
-//                            self.articleImageView.image = UIImage(data: data) ?? image
-//                            self.titleLabel.text = self.viewModel?.title
-//                        }
-                    }
+    private func getImage(for article: FormattedArticle, completion: @escaping (UIImage) -> Void) {
+            guard let url = article.imageURL else { return }
+
+            do {
+                if let data = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: data) {
+                        ImageCache.shared.cacheImage(with: url, for: image)
+                        completion(image)
+                    } else if let noImage = UIImage(named: "no_image") {
+                        completion(noImage)
                 }
             }
         }

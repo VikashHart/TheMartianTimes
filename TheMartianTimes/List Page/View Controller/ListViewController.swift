@@ -15,6 +15,11 @@ class ListViewController: UIViewController {
         viewModel.loadInitialData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+    }
+
     private func bindViewModel() {
         viewModel.onDataRecieved = { [weak self] in
             self?.listView.collectionView.reloadData()
@@ -37,7 +42,9 @@ class ListViewController: UIViewController {
     }
 
     private func configureActions() {
-        refreshControl.addTarget(self, action: #selector(refreshNewsData), for: UIControl.Event.valueChanged)
+        refreshControl.addTarget(self,
+                                 action: #selector(refreshNewsData),
+                                 for: UIControl.Event.valueChanged)
     }
 
     private func presentErrorAlert() {
@@ -73,7 +80,9 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        let cell = listView.collectionView.cellForItem(at: indexPath) as! ArticleCell
+        let article = cell.getArticle()
+        coordinator?.presentArticlePage(article: article)
     }
 }
 
