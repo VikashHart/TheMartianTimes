@@ -5,4 +5,5 @@ protocol Coordinator {
 
     func start()
     func dismiss()
+    func presentArticlePage(article: FormattedArticle)
 }

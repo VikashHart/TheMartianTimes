@@ -16,4 +16,10 @@ class MainCoordinator: Coordinator {
     func dismiss() {
         navigationController.popViewController(animated: true)
     }
+
+    func presentArticlePage(article: FormattedArticle) {
+        let vc = ArticleViewController(article: article)
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
 }

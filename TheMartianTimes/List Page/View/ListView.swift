@@ -28,7 +28,6 @@ class ListView: UIView {
         return button
     }()
 
-//    let font = "AvenirNext-Regular"
     let font = "Georgia-Bold"
 
     lazy var headerLabel: UILabel = {
