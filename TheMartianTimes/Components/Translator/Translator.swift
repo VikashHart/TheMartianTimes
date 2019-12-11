@@ -1,9 +1,13 @@
 import Foundation
 
-extension String {
-    static private let valid = CharacterSet.alphanumerics
+class Translator {
+    private let valid = CharacterSet.alphanumerics
 
-    static func englishToMartian(words: String) -> String {
+    func translateArticle(article: FormattedArticle) -> FormattedArticle {
+        return TranslatedArticle(title: englishToMartian(words: article.title), body: englishToMartian(words: article.body), imageURL: article.imageURL, heightMultiplier: article.heightMultiplier)
+    }
+
+    private func englishToMartian(words: String) -> String {
         var allWords = ""
         let cleanedWords = words.replacingOccurrences(of: "\n", with: " \n")
         let wordArray = cleanedWords.components(separatedBy: .whitespaces)
@@ -20,7 +24,7 @@ extension String {
         return allWords
     }
 
-    static private func translateWordToMartian(from word: String) -> String {
+    private func translateWordToMartian(from word: String) -> String {
 
         guard let firstLetterIndex = word.firstIndex(where: {valid.containsUnicodeScalars(of: $0)}),
             let lastLetterIndex = word.lastIndex(where: {valid.containsUnicodeScalars(of: $0)})
