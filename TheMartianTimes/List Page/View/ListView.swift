@@ -18,29 +18,33 @@ class ListView: UIView {
         return view
     }()
 
-    lazy var settingsButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(named: "settings_button")?.withRenderingMode(.alwaysTemplate)
-        button.setImage(image, for: .normal)
-        button.tintColor = .black
-        button.layer.opacity = 1
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    let font = "Georgia-Bold"
+    let boldFont = "Georgia-Bold"
 
     lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.text = "The Martian Times"
-        label.font = UIFont(name: font, size: 24)
+        label.font = UIFont(name: boldFont, size: 24)
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = .licorice
         label.backgroundColor = .clear
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+
+    let font = "Georgia"
+
+    lazy var segmentedController: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["English", "Martian"])
+        let fontStyle = UIFont(name: font, size: 20)
+        sc.setTitleTextAttributes([NSAttributedString.Key.font: fontStyle!],
+                                  for: .normal)
+        sc.selectedSegmentIndex = 0
+        sc.backgroundColor = .clear
+        sc.tintColor = .lightBlack
+        sc.translatesAutoresizingMaskIntoConstraints = false
+        return sc
     }()
 
     let cell = "ArticleCell"
@@ -73,8 +77,8 @@ class ListView: UIView {
     private func setupViews() {
         setupBackgroundGradient()
         setupHeaderViewContainer()
-        setupSettingsButton()
         setupHeaderLabel()
+        setupSegmentedController()
         setupCollectionView()
     }
 
@@ -98,30 +102,28 @@ class ListView: UIView {
             ])
     }
 
-    private func setupSettingsButton() {
-        headerViewContainer.addSubview(settingsButton)
-        NSLayoutConstraint.activate([
-            settingsButton.centerYAnchor.constraint(equalTo: headerViewContainer.centerYAnchor),
-            settingsButton.trailingAnchor.constraint(equalTo: headerViewContainer.trailingAnchor, constant: -10),
-            settingsButton.heightAnchor.constraint(equalToConstant: 28),
-            settingsButton.widthAnchor.constraint(equalToConstant: 28)
-            ])
-    }
-
     private func setupHeaderLabel() {
         headerViewContainer.addSubview(headerLabel)
         NSLayoutConstraint.activate([
             headerLabel.centerXAnchor.constraint(equalTo: headerViewContainer.centerXAnchor),
             headerLabel.centerYAnchor.constraint(equalTo: headerViewContainer.centerYAnchor),
-            headerLabel.trailingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: 10),
             headerLabel.heightAnchor.constraint(equalToConstant: 40)
+            ])
+    }
+
+    private func setupSegmentedController() {
+        addSubview(segmentedController)
+        NSLayoutConstraint.activate([
+            segmentedController.topAnchor.constraint(equalTo: headerViewContainer.bottomAnchor),
+            segmentedController.leadingAnchor.constraint(equalTo: leadingAnchor),
+            segmentedController.trailingAnchor.constraint(equalTo: trailingAnchor),
             ])
     }
 
     private func setupCollectionView() {
         addSubview(collectionView)
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: headerViewContainer.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: segmentedController.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)

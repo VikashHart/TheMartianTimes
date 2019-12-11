@@ -1,12 +1,14 @@
 import UIKit
 
 extension Article: FormattedArticle {
+
     var topImage: Image? {
         return self.images.filter({ (image) -> Bool in
             return image.topImage == true
         })
         .first
     }
+    
     var imageURL: URL? {
         guard let image = topImage else { return nil }
         return URL(string: image.url)

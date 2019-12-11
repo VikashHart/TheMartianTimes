@@ -1,7 +1,7 @@
 import Foundation
 
 protocol ArticleRetrievable {
-    func getArticles(completion: @escaping (Result<[Article], NetworkError>) -> Void)
+    func getArticles(completion: @escaping (Result<[FormattedArticle], NetworkError>) -> Void)
 }
 
 class NewsAPIClient: ArticleRetrievable {
@@ -11,12 +11,12 @@ class NewsAPIClient: ArticleRetrievable {
         self.client = dataRetriever
     }
 
-    func getArticles(completion: @escaping (Result<[Article], NetworkError>) -> Void) {
+    func getArticles(completion: @escaping (Result<[FormattedArticle], NetworkError>) -> Void) {
         getArticleData(request: URLRequest(url: EndpointBuilder.getEndpointURL()), completion: completion)
     }
 
     private func getArticleData(request: URLRequest,
-                                completion: @escaping (Result<[Article], NetworkError>) -> Void) {
+                                completion: @escaping (Result<[FormattedArticle], NetworkError>) -> Void) {
         client.get(request: request) { (result) in
             switch result {
             case .success(let data):

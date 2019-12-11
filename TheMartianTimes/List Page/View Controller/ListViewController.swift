@@ -39,6 +39,7 @@ class ListViewController: UIViewController {
         listView.collectionView.refreshControl = refreshControl
         configureListViewConstraints()
         configureActions()
+        configureSegmentedController()
     }
 
     private func configureActions() {
@@ -60,10 +61,28 @@ class ListViewController: UIViewController {
         self.present(alert, animated: true)
     }
 
+    private func configureSegmentedController() {
+        listView.segmentedController.selectedSegmentIndex = viewModel.selectedSegment
+        listView.segmentedController.addTarget(self,
+                                               action: #selector(indexChanged),
+                                               for: UIControl.Event.valueChanged)
+    }
+
     @objc private func refreshNewsData() {
         viewModel.loadInitialData()
         self.refreshControl.endRefreshing()
         self.activityIndicator.stopAnimating()
+    }
+
+    @objc private func indexChanged() {
+        switch listView.segmentedController.selectedSegmentIndex {
+        case 0:
+            viewModel.currentLanguage = LanguageType.english
+        case 1:
+            viewModel.currentLanguage = LanguageType.martian
+        default:
+            viewModel.currentLanguage = LanguageType.english
+        }
     }
 
     private func configureListViewConstraints() {
