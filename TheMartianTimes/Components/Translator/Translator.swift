@@ -2,6 +2,7 @@ import Foundation
 
 class Translator {
     private let valid = CharacterSet.alphanumerics
+    private let combinedSet = CharacterSet.decimalDigits.union(.punctuationCharacters).union(.symbols)
 
     func translateArticle(article: FormattedArticle) -> FormattedArticle {
         return TranslatedArticle(title: englishToMartian(words: article.title), body: englishToMartian(words: article.body), imageURL: article.imageURL, heightMultiplier: article.heightMultiplier)
@@ -32,7 +33,7 @@ class Translator {
 
         let translatable = word[firstLetterIndex...lastLetterIndex]
 
-        guard translatable.count > 3 else { return word }
+        guard translatable.count > 3, !combinedSet.isSuperset(of: CharacterSet(charactersIn: String(translatable))) else { return word }
 
         let prefix = word[word.startIndex..<firstLetterIndex]
         let suffix = word[word.index(after: lastLetterIndex)...]
