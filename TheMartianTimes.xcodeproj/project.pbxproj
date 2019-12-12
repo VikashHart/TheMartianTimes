@@ -27,6 +27,14 @@
 		810D09ED239F4FAE00F4B6BD /* TranslatedArticleCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D09EC239F4FAE00F4B6BD /* TranslatedArticleCache.swift */; };
 		810D09EF23A05A0200F4B6BD /* TranslatedArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D09EE23A05A0200F4B6BD /* TranslatedArticle.swift */; };
 		810D09F223A1519500F4B6BD /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D09F123A1519500F4B6BD /* UserDefaults.swift */; };
+		810D09F523A174C200F4B6BD /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D09F423A174C200F4B6BD /* StyleGuide.swift */; };
+		810D09F823A1B84800F4B6BD /* UIView+ViewCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D09F723A1B84800F4B6BD /* UIView+ViewCreator.swift */; };
+		810D09FD23A1BC2700F4B6BD /* UILabel+LabelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D09FC23A1BC2700F4B6BD /* UILabel+LabelCreator.swift */; };
+		810D0A0023A1BE2700F4B6BD /* UIImageView+ImageViewCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D09FF23A1BE2700F4B6BD /* UIImageView+ImageViewCreator.swift */; };
+		810D0A0323A1C05600F4B6BD /* UIButton+ButtonCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D0A0223A1C05600F4B6BD /* UIButton+ButtonCreator.swift */; };
+		810D0A0623A1C14D00F4B6BD /* UIScrollView+ScrollViewCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D0A0523A1C14D00F4B6BD /* UIScrollView+ScrollViewCreator.swift */; };
+		810D0A0923A1C42B00F4B6BD /* UISegmentedControl+SegmentedControlCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D0A0823A1C42B00F4B6BD /* UISegmentedControl+SegmentedControlCreator.swift */; };
+		810D0A0C23A1C58F00F4B6BD /* UICollectionView+CollectionViewCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D0A0B23A1C58F00F4B6BD /* UICollectionView+CollectionViewCreator.swift */; };
 		8122129A238AE026006F50FF /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81221299238AE026006F50FF /* CoordinatorProtocol.swift */; };
 		8122129C238AE5BF006F50FF /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8122129B238AE5BF006F50FF /* MainCoordinator.swift */; };
 		8122129F238AED46006F50FF /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8122129E238AED46006F50FF /* NetworkClient.swift */; };
@@ -63,6 +71,14 @@
 		810D09EC239F4FAE00F4B6BD /* TranslatedArticleCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedArticleCache.swift; sourceTree = "<group>"; };
 		810D09EE23A05A0200F4B6BD /* TranslatedArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedArticle.swift; sourceTree = "<group>"; };
 		810D09F123A1519500F4B6BD /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		810D09F423A174C200F4B6BD /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		810D09F723A1B84800F4B6BD /* UIView+ViewCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ViewCreator.swift"; sourceTree = "<group>"; };
+		810D09FC23A1BC2700F4B6BD /* UILabel+LabelCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+LabelCreator.swift"; sourceTree = "<group>"; };
+		810D09FF23A1BE2700F4B6BD /* UIImageView+ImageViewCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageViewCreator.swift"; sourceTree = "<group>"; };
+		810D0A0223A1C05600F4B6BD /* UIButton+ButtonCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ButtonCreator.swift"; sourceTree = "<group>"; };
+		810D0A0523A1C14D00F4B6BD /* UIScrollView+ScrollViewCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ScrollViewCreator.swift"; sourceTree = "<group>"; };
+		810D0A0823A1C42B00F4B6BD /* UISegmentedControl+SegmentedControlCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+SegmentedControlCreator.swift"; sourceTree = "<group>"; };
+		810D0A0B23A1C58F00F4B6BD /* UICollectionView+CollectionViewCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+CollectionViewCreator.swift"; sourceTree = "<group>"; };
 		81221299238AE026006F50FF /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		8122129B238AE5BF006F50FF /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		8122129E238AED46006F50FF /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -102,6 +118,13 @@
 		810560E62389AC4400D84424 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				810D0A0A23A1C56300F4B6BD /* UICollectionView */,
+				810D0A0723A1C36000F4B6BD /* UISegmentedControl */,
+				810D0A0423A1C12700F4B6BD /* UIScrollView */,
+				810D0A0123A1C03400F4B6BD /* UIButton */,
+				810D09FE23A1BDFC00F4B6BD /* UIImageView */,
+				810D09FB23A1BBFB00F4B6BD /* UILabel */,
+				810D09F623A1B7F000F4B6BD /* UIView */,
 				810D09D8239B2BFC00F4B6BD /* Characterset */,
 				810D09CF23961A2400F4B6BD /* Article */,
 				810560E92389ACB700D84424 /* UIColor+HexConverter+cgColor */,
@@ -227,6 +250,70 @@
 			path = "User Defaults";
 			sourceTree = "<group>";
 		};
+		810D09F323A174A900F4B6BD /* Style Guide */ = {
+			isa = PBXGroup;
+			children = (
+				810D09F423A174C200F4B6BD /* StyleGuide.swift */,
+			);
+			path = "Style Guide";
+			sourceTree = "<group>";
+		};
+		810D09F623A1B7F000F4B6BD /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				810D09F723A1B84800F4B6BD /* UIView+ViewCreator.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		810D09FB23A1BBFB00F4B6BD /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				810D09FC23A1BC2700F4B6BD /* UILabel+LabelCreator.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		810D09FE23A1BDFC00F4B6BD /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				810D09FF23A1BE2700F4B6BD /* UIImageView+ImageViewCreator.swift */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		810D0A0123A1C03400F4B6BD /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				810D0A0223A1C05600F4B6BD /* UIButton+ButtonCreator.swift */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		810D0A0423A1C12700F4B6BD /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				810D0A0523A1C14D00F4B6BD /* UIScrollView+ScrollViewCreator.swift */,
+			);
+			path = UIScrollView;
+			sourceTree = "<group>";
+		};
+		810D0A0723A1C36000F4B6BD /* UISegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				810D0A0823A1C42B00F4B6BD /* UISegmentedControl+SegmentedControlCreator.swift */,
+			);
+			path = UISegmentedControl;
+			sourceTree = "<group>";
+		};
+		810D0A0A23A1C56300F4B6BD /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				810D0A0B23A1C58F00F4B6BD /* UICollectionView+CollectionViewCreator.swift */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
 		8122129D238AE8DB006F50FF /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +416,7 @@
 		81E6DF4A2389ABB300BA31A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				810D09F323A174A900F4B6BD /* Style Guide */,
 				810D09F023A1517400F4B6BD /* User Defaults */,
 				810D09E6239F435500F4B6BD /* Caching */,
 				810D09DB239EA9E600F4B6BD /* Languages */,
@@ -415,12 +503,16 @@
 				810D09ED239F4FAE00F4B6BD /* TranslatedArticleCache.swift in Sources */,
 				810560F6238A4C1600D84424 /* ListVCViewModel.swift in Sources */,
 				810D09EF23A05A0200F4B6BD /* TranslatedArticle.swift in Sources */,
+				810D0A0C23A1C58F00F4B6BD /* UICollectionView+CollectionViewCreator.swift in Sources */,
 				810D09CE238C870300F4B6BD /* FormattedArticle.swift in Sources */,
 				812212A3238AF2A2006F50FF /* NetworkError.swift in Sources */,
 				810560EB2389AD2400D84424 /* UIColor+HexConverter+cgColor.swift in Sources */,
 				8122129A238AE026006F50FF /* CoordinatorProtocol.swift in Sources */,
 				810D09C7238B93B500F4B6BD /* ArticleVCViewModel.swift in Sources */,
+				810D0A0323A1C05600F4B6BD /* UIButton+ButtonCreator.swift in Sources */,
 				812212A7238AF7D5006F50FF /* NewsAPIClient.swift in Sources */,
+				810D0A0023A1BE2700F4B6BD /* UIImageView+ImageViewCreator.swift in Sources */,
+				810D09FD23A1BC2700F4B6BD /* UILabel+LabelCreator.swift in Sources */,
 				81E6DF342388A08700BA31A6 /* ListViewController.swift in Sources */,
 				810D09DD239EAA0C00F4B6BD /* LanguagesEnum.swift in Sources */,
 				810D09D123961A7500F4B6BD /* Article+FormattedArticle.swift in Sources */,
@@ -428,15 +520,19 @@
 				810560F4238A25C800D84424 /* ArticleModel.swift in Sources */,
 				8122129C238AE5BF006F50FF /* MainCoordinator.swift in Sources */,
 				810560ED2389BDB100D84424 /* ArticleCell.swift in Sources */,
+				810D0A0623A1C14D00F4B6BD /* UIScrollView+ScrollViewCreator.swift in Sources */,
 				81E6DF322388A08700BA31A6 /* AppDelegate.swift in Sources */,
+				810D0A0923A1C42B00F4B6BD /* UISegmentedControl+SegmentedControlCreator.swift in Sources */,
 				812212A5238AF5AC006F50FF /* EndpointBuilder.swift in Sources */,
 				810D09C5238B913000F4B6BD /* ArticleViewController.swift in Sources */,
 				812212A1238AF082006F50FF /* HTTPURLResponseAPIError.swift in Sources */,
 				810560E82389AC8D00D84424 /* GradientView.swift in Sources */,
 				810560F0238A23AD00D84424 /* ArticleCellViewModel.swift in Sources */,
+				810D09F523A174C200F4B6BD /* StyleGuide.swift in Sources */,
 				81E6DF492388B29C00BA31A6 /* ListView.swift in Sources */,
 				810D09D7239ADAEC00F4B6BD /* Translator.swift in Sources */,
 				810D09EB239F45DA00F4B6BD /* ArticleCachableProtocol.swift in Sources */,
+				810D09F823A1B84800F4B6BD /* UIView+ViewCreator.swift in Sources */,
 				810D09F223A1519500F4B6BD /* UserDefaults.swift in Sources */,
 				8122129F238AED46006F50FF /* NetworkClient.swift in Sources */,
 				810D09E9239F453D00F4B6BD /* OriginalArticlesCache.swift in Sources */,

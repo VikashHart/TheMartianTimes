@@ -4,34 +4,11 @@ class ArticleCell: UICollectionViewCell {
 
     private var viewModel: ArticleCellViewModeling?
 
-    lazy var containerView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 10
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    lazy var containerView: UIView = UIView.makeContainerView()
 
-    lazy var articleImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.tintColor = UIColor.licorice
-        imageView.layer.masksToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    lazy var articleImageView: UIImageView = UIImageView.makeImageView()
 
-    let font = "Georgia-Bold"
-
-    lazy var articleTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: font, size: 20)
-        label.textAlignment = .left
-        label.textColor = .licorice
-        label.backgroundColor = .clear
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    lazy var articleTitleLabel: UILabel = UILabel.makeTitleLabel()
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -116,7 +93,7 @@ class ArticleCell: UICollectionViewCell {
                     if let image = UIImage(data: data) {
                         ImageCache.shared.cacheImage(with: url, for: image)
                         completion(image)
-                    } else if let noImage = UIImage(named: "no_image") {
+                    } else if let noImage = UIImage(named: StyleGuide.ImageAssets.noImageAvailable) {
                         completion(noImage)
                 }
             }
