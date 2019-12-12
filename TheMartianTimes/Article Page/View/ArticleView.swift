@@ -2,96 +2,23 @@ import UIKit
 
 class ArticleView: UIView {
 
-    lazy var backgroundGradient: GradientView = {
-        let view = GradientView()
-        view.gradientLayer?.startPoint = CGPoint(x: 0, y: 0)
-        view.gradientLayer?.endPoint = CGPoint(x: 1, y: 1)
-        view.gradientLayer?.colors = CGColor.whites
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    lazy var backgroundGradient: GradientView = GradientView.makeGradientView()
 
-    lazy var headerViewContainer: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    lazy var headerViewContainer: UIView = UIView.makeContainerView()
 
-    lazy var backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "back_button")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.tintColor = .licorice
-        button.layer.opacity = 1
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    lazy var backButton: UIButton = UIButton.makeBackButton()
 
-    let boldFont = "Georgia-Bold"
+    lazy var headerLabel: UILabel = UILabel.makeHeaderLabel()
 
-    lazy var headerLabel: UILabel = {
-        let label = UILabel()
-        label.text = "The Martian Times"
-        label.font = UIFont(name: boldFont, size: 24)
-        label.textAlignment = .center
-        label.textColor = .licorice
-        label.backgroundColor = .clear
-        label.numberOfLines = 1
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    lazy var scrollView: UIScrollView = UIScrollView.makeScrollView()
 
-    lazy var scrollView: UIScrollView = {
-        let sv = UIScrollView()
-        sv.backgroundColor = .clear
-        sv.delaysContentTouches = false
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        return sv
-    }()
+    lazy var contentView: UIView = UIView.makeContainerView()
 
-    lazy var contentView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.isUserInteractionEnabled = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    lazy var articleImageView: UIImageView = UIImageView.makeImageView()
 
-    lazy var articleImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.tintColor = .lightBlack
-        imageView.backgroundColor = .clear
-        imageView.layer.masksToBounds = true
+    lazy var titleLabel: UILabel = UILabel.makeTitleLabel()
 
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: boldFont, size: 18)
-        label.textAlignment = .left
-        label.textColor = .licorice
-        label.backgroundColor = .clear
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    let font = "Georgia"
-
-    lazy var bodyLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: font, size: 18)
-        label.textAlignment = .left
-        label.textColor = .lightBlack
-        label.backgroundColor = .clear
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    lazy var bodyLabel: UILabel = UILabel.makeBodyLabel()
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -216,7 +143,7 @@ class ArticleView: UIView {
         bodyLabel.text = article.body
         if let url = article.imageURL {
             articleImageView.image = ImageCache.shared.getImage(for: url)
-        } else if let noImage = UIImage(named: "no_image") {
+        } else if let noImage = UIImage(named: StyleGuide.ImageAssets.noImageAvailable) {
             articleImageView.image = noImage
         }
     }

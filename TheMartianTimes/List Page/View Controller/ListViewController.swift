@@ -33,13 +33,13 @@ class ListViewController: UIViewController {
     private func configureView() {
         view.backgroundColor = .white
         refreshControl.tintColor = UIColor.lightBlack
-        refreshControl.attributedTitle = NSAttributedString(string: "Fetching News Data ...", attributes: [NSAttributedString.Key.font: UIFont(name: "Georgia", size: 18.0)!, NSAttributedString.Key.foregroundColor: UIColor.lightBlack])
+        refreshControl.attributedTitle = NSAttributedString(string: StyleGuide.StaticText.refreshText, attributes: [NSAttributedString.Key.font: StyleGuide.Fonts.refreshTitleFont, NSAttributedString.Key.foregroundColor: StyleGuide.AppColors.secondaryColor])
         listView.collectionView.delegate = self
         listView.collectionView.dataSource = self
         listView.collectionView.refreshControl = refreshControl
         configureListViewConstraints()
         configureActions()
-        configureSegmentedController()
+        configureSegmentedControl()
     }
 
     private func configureActions() {
@@ -49,11 +49,11 @@ class ListViewController: UIViewController {
     }
 
     private func presentErrorAlert() {
-        let alert = UIAlertController(title: "An error occured while fetching data.", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
+        let alert = UIAlertController(title: StyleGuide.StaticText.alertControlErrorText, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: StyleGuide.StaticText.alertControlConfirmationText, style: .destructive, handler: { action in
             self.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: StyleGuide.StaticText.alertControlRetryText, style: .default, handler: { action in
             self.viewModel.loadInitialData()
             self.dismiss(animated: true, completion: nil)
         }))
@@ -61,9 +61,9 @@ class ListViewController: UIViewController {
         self.present(alert, animated: true)
     }
 
-    private func configureSegmentedController() {
-        listView.segmentedController.selectedSegmentIndex = viewModel.selectedSegment
-        listView.segmentedController.addTarget(self,
+    private func configureSegmentedControl() {
+        listView.segmentedControl.selectedSegmentIndex = viewModel.selectedSegment
+        listView.segmentedControl.addTarget(self,
                                                action: #selector(indexChanged),
                                                for: UIControl.Event.valueChanged)
     }
@@ -75,7 +75,7 @@ class ListViewController: UIViewController {
     }
 
     @objc private func indexChanged() {
-        switch listView.segmentedController.selectedSegmentIndex {
+        switch listView.segmentedControl.selectedSegmentIndex {
         case 0:
             viewModel.currentLanguage = LanguageType.english
         case 1:
