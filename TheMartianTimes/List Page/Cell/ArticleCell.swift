@@ -72,16 +72,16 @@ class ArticleCell: UICollectionViewCell {
             ])
     }
 
-    func updateWith(article: FormattedArticle) {
+    public func updateWith(article: FormattedArticle) {
         viewModel = ArticleCellViewModel(article: article)
         getImage(for: article) { [weak self] image in
             self?.articleTitleLabel.text = article.title
-            self?.articleImageView.heightAnchor.constraint(equalTo: self!.widthAnchor, multiplier: article.heightMultiplier)
+            self?.articleImageView.heightAnchor.constraint(equalTo: self!.widthAnchor, multiplier: article.imageHeightMultiplier)
             self?.articleImageView.image = image
         }
     }
 
-    func getArticle() -> FormattedArticle {
+    public func getArticle() -> FormattedArticle {
         return viewModel!.formattedArticle
     }
 
@@ -93,7 +93,7 @@ class ArticleCell: UICollectionViewCell {
                     if let image = UIImage(data: data) {
                         ImageCache.shared.cacheImage(with: url, for: image)
                         completion(image)
-                    } else if let noImage = UIImage(named: StyleGuide.ImageAssets.noImageAvailable) {
+                    } else if let noImage = UIImage(named: StaticAppStrings.ImageAssets.noImageAvailable) {
                         completion(noImage)
                 }
             }

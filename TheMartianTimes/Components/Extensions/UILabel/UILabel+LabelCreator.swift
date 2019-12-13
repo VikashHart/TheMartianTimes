@@ -3,7 +3,7 @@ import UIKit
 extension UILabel {
     static func makeHeaderLabel() -> UILabel {
         let label = UILabel()
-        label.text = StyleGuide.StaticText.headerText
+        label.text = StaticAppStrings.StaticText.headerText
         label.font = StyleGuide.Fonts.headerFont
         label.textAlignment = .center
         label.textColor = StyleGuide.AppColors.primaryColor

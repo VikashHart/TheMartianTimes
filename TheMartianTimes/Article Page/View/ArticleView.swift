@@ -137,13 +137,13 @@ class ArticleView: UIView {
             ])
     }
 
-    func updateUI(article: FormattedArticle) {
-        articleImageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: article.heightMultiplier)
+    public func updateUI(article: FormattedArticle) {
+        articleImageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: article.imageHeightMultiplier)
         titleLabel.text = article.title
         bodyLabel.text = article.body
         if let url = article.imageURL {
             articleImageView.image = ImageCache.shared.getImage(for: url)
-        } else if let noImage = UIImage(named: StyleGuide.ImageAssets.noImageAvailable) {
+        } else if let noImage = UIImage(named: StaticAppStrings.ImageAssets.noImageAvailable) {
             articleImageView.image = noImage
         }
     }

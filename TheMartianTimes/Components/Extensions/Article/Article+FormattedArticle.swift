@@ -14,7 +14,7 @@ extension Article: FormattedArticle {
         return URL(string: image.url)
     }
 
-    var heightMultiplier: CGFloat {
+    var imageHeightMultiplier: CGFloat {
         guard let image = topImage else { return 0.6 }
         return CGFloat(image.height) / CGFloat(image.width)
     }

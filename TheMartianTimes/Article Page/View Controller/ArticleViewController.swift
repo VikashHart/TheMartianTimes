@@ -2,15 +2,18 @@ import UIKit
 
 class ArticleViewController: UIViewController {
 
+    // Properties
     private let articleView = ArticleView()
     private var viewModel: ArticleVCViewModeling
     weak var coordinator: MainCoordinator?
 
+    // Life-cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
 
+    // Initializers
     init(article: FormattedArticle) {
         self.viewModel = ArticleVCViewModel(article: article)
         super.init(nibName: nil, bundle: nil)
@@ -20,6 +23,7 @@ class ArticleViewController: UIViewController {
         fatalError()
     }
 
+    // Private functions
     private func configureView() {
         view.backgroundColor = .white
         configureArticleViewConstraints()

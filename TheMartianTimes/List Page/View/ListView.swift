@@ -10,7 +10,7 @@ class ListView: UIView {
 
     lazy var segmentedControl: UISegmentedControl = UISegmentedControl.makeSegmentedControl()
 
-    lazy var collectionView: UICollectionView = UICollectionView.makeCollectionView(with: ArticleCell.self, scrollDirection: .vertical, frame: frame, and: StyleGuide.Cells.articleCell)
+    lazy var collectionView: UICollectionView = UICollectionView.makeCollectionView(with: ArticleCell.self, scrollDirection: .vertical, frame: frame, and: StaticAppStrings.Cells.articleCell)
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
