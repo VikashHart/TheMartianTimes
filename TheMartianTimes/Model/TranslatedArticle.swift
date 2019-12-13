@@ -5,7 +5,7 @@ struct TranslatedArticle: FormattedArticle {
 
     var imageURL: URL?
 
-    var heightMultiplier: CGFloat
+    var imageHeightMultiplier: CGFloat
 
     var body: String
 
@@ -13,6 +13,6 @@ struct TranslatedArticle: FormattedArticle {
         self.title = title
         self.body = body
         self.imageURL = imageURL
-        self.heightMultiplier = heightMultiplier
+        self.imageHeightMultiplier = heightMultiplier
     }
 }

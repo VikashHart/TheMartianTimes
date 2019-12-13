@@ -2,7 +2,7 @@ import UIKit
 
 extension UISegmentedControl {
     static func makeSegmentedControl() -> UISegmentedControl{
-        let sc = UISegmentedControl(items: [StyleGuide.StaticText.segmentOne, StyleGuide.StaticText.segmentTwo])
+        let sc = UISegmentedControl(items: [StaticAppStrings.StaticText.segmentOne, StaticAppStrings.StaticText.segmentTwo])
         let fontStyle = StyleGuide.Fonts.segmentedControllerFont
         sc.setTitleTextAttributes([NSAttributedString.Key.font: fontStyle!],
                                   for: .normal)

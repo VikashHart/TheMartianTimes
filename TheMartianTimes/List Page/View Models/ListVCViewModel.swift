@@ -37,6 +37,9 @@ class ListVCViewModel: ListVCViewModeling {
         }
     }
 
+    private var originalArticles: [FormattedArticle] = []
+    private var translatedArticles: [FormattedArticle] = []
+
     private let translator: Translator
     private let userDefaults = Defaults()
 
@@ -81,14 +84,12 @@ class ListVCViewModel: ListVCViewModeling {
     }
 
     private func getData(completion: @escaping ([FormattedArticle]) -> Void) {
-        if OriginalArticlesCache.shared.isEmpty == true {
+        if originalArticles.isEmpty == true {
             apiClient.getArticles(completion: { [weak self] (result) in
                 switch result {
                 case .success(let data):
                     for article in data {
-                        if let url = article.imageURL {
-                        OriginalArticlesCache.shared.cacheArticle(with: url, for: article)
-                        }
+                        self?.originalArticles.append(article)
                     }
                     completion(data)
                 case .failure( _):
@@ -96,33 +97,30 @@ class ListVCViewModel: ListVCViewModeling {
                 }
             })
         } else {
-            completion(OriginalArticlesCache.shared.getArticles())
+            completion(originalArticles)
         }
     }
 
     private func switchToEnglish() {
-        if OriginalArticlesCache.shared.isEmpty == true {
+        if originalArticles.isEmpty == true {
             loadInitialData()
         } else {
-            articles = OriginalArticlesCache.shared.getArticles()
+            articles = originalArticles
         }
         userDefaults.saveActiveLanguage(setting: setLanguage())
     }
 
     private func switchToMartian() {
-        if TranslatedArticlesCache.shared.isEmpty == true {
+        if translatedArticles.isEmpty == true {
             getData { (articles) in
-                var dataSource: [FormattedArticle] = []
                 for article in articles {
                     let article = self.translator.translateArticle(article: article)
-                    dataSource.append(article)
-                    guard let url = article.imageURL else { return }
-                    TranslatedArticlesCache.shared.cacheArticle(with: url, for: article)
+                    self.translatedArticles.append(article)
                 }
-                self.articles = dataSource
+                self.articles = self.translatedArticles
             }
         } else {
-            self.articles = TranslatedArticlesCache.shared.getArticles()
+            self.articles = translatedArticles
         }
         userDefaults.saveActiveLanguage(setting: setLanguage())
     }

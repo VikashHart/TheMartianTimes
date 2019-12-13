@@ -2,12 +2,14 @@ import UIKit
 
 class ListViewController: UIViewController {
 
+    // Properties
     private let listView = ListView()
     private var viewModel: ListVCViewModeling = ListVCViewModel()
     weak var coordinator: MainCoordinator?
     private let refreshControl = UIRefreshControl()
     private let activityIndicator = UIActivityIndicatorView()
 
+    // Life-cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -20,6 +22,7 @@ class ListViewController: UIViewController {
         super.viewWillAppear(animated)
     }
 
+    // Private functions
     private func bindViewModel() {
         viewModel.onDataRecieved = { [weak self] in
             self?.listView.collectionView.reloadData()
@@ -32,14 +35,22 @@ class ListViewController: UIViewController {
 
     private func configureView() {
         view.backgroundColor = .white
-        refreshControl.tintColor = UIColor.lightBlack
-        refreshControl.attributedTitle = NSAttributedString(string: StyleGuide.StaticText.refreshText, attributes: [NSAttributedString.Key.font: StyleGuide.Fonts.refreshTitleFont, NSAttributedString.Key.foregroundColor: StyleGuide.AppColors.secondaryColor])
-        listView.collectionView.delegate = self
-        listView.collectionView.dataSource = self
-        listView.collectionView.refreshControl = refreshControl
+        configureRefreshControl()
+        configureCollectionView()
         configureListViewConstraints()
         configureActions()
         configureSegmentedControl()
+    }
+
+    private func configureRefreshControl() {
+        refreshControl.tintColor = UIColor.lightBlack
+        refreshControl.attributedTitle = NSAttributedString(string: StaticAppStrings.StaticText.refreshText, attributes: [NSAttributedString.Key.font: StyleGuide.Fonts.refreshTitleFont, NSAttributedString.Key.foregroundColor: StyleGuide.AppColors.secondaryColor])
+    }
+
+    private func configureCollectionView() {
+        listView.collectionView.delegate = self
+        listView.collectionView.dataSource = self
+        listView.collectionView.refreshControl = refreshControl
     }
 
     private func configureActions() {
@@ -49,11 +60,11 @@ class ListViewController: UIViewController {
     }
 
     private func presentErrorAlert() {
-        let alert = UIAlertController(title: StyleGuide.StaticText.alertControlErrorText, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: StyleGuide.StaticText.alertControlConfirmationText, style: .destructive, handler: { action in
+        let alert = UIAlertController(title: StaticAppStrings.StaticText.alertControlErrorText, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: StaticAppStrings.StaticText.alertControlConfirmationText, style: .destructive, handler: { action in
             self.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: StyleGuide.StaticText.alertControlRetryText, style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: StaticAppStrings.StaticText.alertControlRetryText, style: .default, handler: { action in
             self.viewModel.loadInitialData()
             self.dismiss(animated: true, completion: nil)
         }))
@@ -97,6 +108,7 @@ class ListViewController: UIViewController {
     }
 }
 
+// Extensions
 extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = listView.collectionView.cellForItem(at: indexPath) as! ArticleCell
@@ -111,7 +123,7 @@ extension ListViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArticleCell", for: indexPath) as? ArticleCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StaticAppStrings.Cells.articleCell, for: indexPath) as? ArticleCell else { return UICollectionViewCell() }
         let curentArticle = viewModel.articles[indexPath.row]
         cell.updateWith(article: curentArticle)
         return cell
