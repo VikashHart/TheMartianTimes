@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092B2EAA746E6140610A1CB5 /* Pods_TheMartianTimes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E8332AAEB99E1F546CFE477 /* Pods_TheMartianTimes.framework */; };
 		810560E82389AC8D00D84424 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810560E72389AC8D00D84424 /* GradientView.swift */; };
 		810560EB2389AD2400D84424 /* UIColor+HexConverter+cgColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810560EA2389AD2400D84424 /* UIColor+HexConverter+cgColor.swift */; };
 		810560ED2389BDB100D84424 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810560EC2389BDB100D84424 /* ArticleCell.swift */; };
@@ -40,15 +41,34 @@
 		812212A3238AF2A2006F50FF /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812212A2238AF2A2006F50FF /* NetworkError.swift */; };
 		812212A5238AF5AC006F50FF /* EndpointBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812212A4238AF5AC006F50FF /* EndpointBuilder.swift */; };
 		812212A7238AF7D5006F50FF /* NewsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812212A6238AF7D5006F50FF /* NewsAPIClient.swift */; };
+		8144D1FC23A465E80089AFDF /* TheMartianTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8144D1FB23A465E80089AFDF /* TheMartianTimesTests.swift */; };
+		8144D20423A468F30089AFDF /* TranslatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8144D20323A468F30089AFDF /* TranslatorSpec.swift */; };
+		8144D20623A55B9A0089AFDF /* ListVCViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8144D20523A55B9A0089AFDF /* ListVCViewModelSpec.swift */; };
+		8144D20823A5697A0089AFDF /* ArticleVCViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8144D20723A5697A0089AFDF /* ArticleVCViewModelSpec.swift */; };
+		8144D20C23A56F580089AFDF /* ArticleCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8144D20B23A56F580089AFDF /* ArticleCellViewModelSpec.swift */; };
 		81E6DF322388A08700BA31A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6DF312388A08700BA31A6 /* AppDelegate.swift */; };
 		81E6DF342388A08700BA31A6 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6DF332388A08700BA31A6 /* ListViewController.swift */; };
 		81E6DF372388A08800BA31A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E6DF352388A08800BA31A6 /* Main.storyboard */; };
 		81E6DF392388A08900BA31A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E6DF382388A08900BA31A6 /* Assets.xcassets */; };
 		81E6DF3C2388A08900BA31A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E6DF3A2388A08900BA31A6 /* LaunchScreen.storyboard */; };
 		81E6DF492388B29C00BA31A6 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6DF482388B29C00BA31A6 /* ListView.swift */; };
+		837975A583C875248435A229 /* Pods_TheMartianTimesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1174BB16709B5E0B575D604 /* Pods_TheMartianTimesTests.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8144D1FE23A465E80089AFDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81E6DF262388A08700BA31A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81E6DF2D2388A08700BA31A6;
+			remoteInfo = TheMartianTimes;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		14E3B1CD6D16FF40C5FA8788 /* Pods-TheMartianTimesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMartianTimesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMartianTimesTests/Pods-TheMartianTimesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4E8332AAEB99E1F546CFE477 /* Pods_TheMartianTimes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMartianTimes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54E4C04C2AD15EBF0E7E5D4F /* Pods-TheMartianTimes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMartianTimes.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMartianTimes/Pods-TheMartianTimes.release.xcconfig"; sourceTree = "<group>"; };
 		810560E72389AC8D00D84424 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		810560EA2389AD2400D84424 /* UIColor+HexConverter+cgColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexConverter+cgColor.swift"; sourceTree = "<group>"; };
 		810560EC2389BDB100D84424 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
@@ -82,6 +102,13 @@
 		812212A2238AF2A2006F50FF /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		812212A4238AF5AC006F50FF /* EndpointBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointBuilder.swift; sourceTree = "<group>"; };
 		812212A6238AF7D5006F50FF /* NewsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIClient.swift; sourceTree = "<group>"; };
+		8144D1F923A465E80089AFDF /* TheMartianTimesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMartianTimesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8144D1FB23A465E80089AFDF /* TheMartianTimesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMartianTimesTests.swift; sourceTree = "<group>"; };
+		8144D1FD23A465E80089AFDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8144D20323A468F30089AFDF /* TranslatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorSpec.swift; sourceTree = "<group>"; };
+		8144D20523A55B9A0089AFDF /* ListVCViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVCViewModelSpec.swift; sourceTree = "<group>"; };
+		8144D20723A5697A0089AFDF /* ArticleVCViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleVCViewModelSpec.swift; sourceTree = "<group>"; };
+		8144D20B23A56F580089AFDF /* ArticleCellViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCellViewModelSpec.swift; sourceTree = "<group>"; };
 		81E6DF2E2388A08700BA31A6 /* TheMartianTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMartianTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E6DF312388A08700BA31A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81E6DF332388A08700BA31A6 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -90,19 +117,40 @@
 		81E6DF3B2388A08900BA31A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81E6DF3D2388A08900BA31A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E6DF482388B29C00BA31A6 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		C1174BB16709B5E0B575D604 /* Pods_TheMartianTimesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMartianTimesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE98EF2986B50A1C695F8E7C /* Pods-TheMartianTimesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMartianTimesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMartianTimesTests/Pods-TheMartianTimesTests.release.xcconfig"; sourceTree = "<group>"; };
+		FF657D0DFA3814E7F68F9E25 /* Pods-TheMartianTimes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMartianTimes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMartianTimes/Pods-TheMartianTimes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8144D1F623A465E80089AFDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				837975A583C875248435A229 /* Pods_TheMartianTimesTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		81E6DF2B2388A08700BA31A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				092B2EAA746E6140610A1CB5 /* Pods_TheMartianTimes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C0FEFFC28071C72D67591C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E8332AAEB99E1F546CFE477 /* Pods_TheMartianTimes.framework */,
+				C1174BB16709B5E0B575D604 /* Pods_TheMartianTimesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		810560E52389AC2E00D84424 /* Gradient */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,11 +370,27 @@
 			path = "Article Page";
 			sourceTree = "<group>";
 		};
+		8144D1FA23A465E80089AFDF /* TheMartianTimesTests */ = {
+			isa = PBXGroup;
+			children = (
+				8144D1FB23A465E80089AFDF /* TheMartianTimesTests.swift */,
+				8144D1FD23A465E80089AFDF /* Info.plist */,
+				8144D20323A468F30089AFDF /* TranslatorSpec.swift */,
+				8144D20523A55B9A0089AFDF /* ListVCViewModelSpec.swift */,
+				8144D20723A5697A0089AFDF /* ArticleVCViewModelSpec.swift */,
+				8144D20B23A56F580089AFDF /* ArticleCellViewModelSpec.swift */,
+			);
+			path = TheMartianTimesTests;
+			sourceTree = "<group>";
+		};
 		81E6DF252388A08700BA31A6 = {
 			isa = PBXGroup;
 			children = (
 				81E6DF302388A08700BA31A6 /* TheMartianTimes */,
+				8144D1FA23A465E80089AFDF /* TheMartianTimesTests */,
 				81E6DF2F2388A08700BA31A6 /* Products */,
+				FC6DED716E1E29C0E45DD606 /* Pods */,
+				4C0FEFFC28071C72D67591C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				81E6DF2E2388A08700BA31A6 /* TheMartianTimes.app */,
+				8144D1F923A465E80089AFDF /* TheMartianTimesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -414,13 +479,45 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		FC6DED716E1E29C0E45DD606 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF657D0DFA3814E7F68F9E25 /* Pods-TheMartianTimes.debug.xcconfig */,
+				54E4C04C2AD15EBF0E7E5D4F /* Pods-TheMartianTimes.release.xcconfig */,
+				14E3B1CD6D16FF40C5FA8788 /* Pods-TheMartianTimesTests.debug.xcconfig */,
+				DE98EF2986B50A1C695F8E7C /* Pods-TheMartianTimesTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8144D1F823A465E80089AFDF /* TheMartianTimesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8144D20223A465E80089AFDF /* Build configuration list for PBXNativeTarget "TheMartianTimesTests" */;
+			buildPhases = (
+				84DBFDEEFBBBA9FB432B66C2 /* [CP] Check Pods Manifest.lock */,
+				8144D1F523A465E80089AFDF /* Sources */,
+				8144D1F623A465E80089AFDF /* Frameworks */,
+				8144D1F723A465E80089AFDF /* Resources */,
+				8DBCB834A2CEB29CEE78AF3E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8144D1FF23A465E80089AFDF /* PBXTargetDependency */,
+			);
+			name = TheMartianTimesTests;
+			productName = TheMartianTimesTests;
+			productReference = 8144D1F923A465E80089AFDF /* TheMartianTimesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		81E6DF2D2388A08700BA31A6 /* TheMartianTimes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81E6DF402388A08900BA31A6 /* Build configuration list for PBXNativeTarget "TheMartianTimes" */;
 			buildPhases = (
+				B61992C5FB87F5DDDAA37768 /* [CP] Check Pods Manifest.lock */,
 				81E6DF2A2388A08700BA31A6 /* Sources */,
 				81E6DF2B2388A08700BA31A6 /* Frameworks */,
 				81E6DF2C2388A08700BA31A6 /* Resources */,
@@ -444,6 +541,10 @@
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Vikash Hart";
 				TargetAttributes = {
+					8144D1F823A465E80089AFDF = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 81E6DF2D2388A08700BA31A6;
+					};
 					81E6DF2D2388A08700BA31A6 = {
 						CreatedOnToolsVersion = 10.3;
 					};
@@ -463,11 +564,19 @@
 			projectRoot = "";
 			targets = (
 				81E6DF2D2388A08700BA31A6 /* TheMartianTimes */,
+				8144D1F823A465E80089AFDF /* TheMartianTimesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8144D1F723A465E80089AFDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		81E6DF2C2388A08700BA31A6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -480,7 +589,90 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		84DBFDEEFBBBA9FB432B66C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TheMartianTimesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DBCB834A2CEB29CEE78AF3E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TheMartianTimesTests/Pods-TheMartianTimesTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheMartianTimesTests/Pods-TheMartianTimesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B61992C5FB87F5DDDAA37768 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TheMartianTimes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		8144D1F523A465E80089AFDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8144D20C23A56F580089AFDF /* ArticleCellViewModelSpec.swift in Sources */,
+				8144D20423A468F30089AFDF /* TranslatorSpec.swift in Sources */,
+				8144D20623A55B9A0089AFDF /* ListVCViewModelSpec.swift in Sources */,
+				8144D1FC23A465E80089AFDF /* TheMartianTimesTests.swift in Sources */,
+				8144D20823A5697A0089AFDF /* ArticleVCViewModelSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		81E6DF2A2388A08700BA31A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -526,6 +718,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8144D1FF23A465E80089AFDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81E6DF2D2388A08700BA31A6 /* TheMartianTimes */;
+			targetProxy = 8144D1FE23A465E80089AFDF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		81E6DF352388A08800BA31A6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -546,6 +746,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8144D20023A465E80089AFDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14E3B1CD6D16FF40C5FA8788 /* Pods-TheMartianTimesTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63X7US2LVV;
+				INFOPLIST_FILE = TheMartianTimesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Vikash-Hart.TheMartianTimesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheMartianTimes.app/TheMartianTimes";
+			};
+			name = Debug;
+		};
+		8144D20123A465E80089AFDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE98EF2986B50A1C695F8E7C /* Pods-TheMartianTimesTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63X7US2LVV;
+				INFOPLIST_FILE = TheMartianTimesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Vikash-Hart.TheMartianTimesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheMartianTimes.app/TheMartianTimes";
+			};
+			name = Release;
+		};
 		81E6DF3E2388A08900BA31A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -664,6 +906,7 @@
 		};
 		81E6DF412388A08900BA31A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF657D0DFA3814E7F68F9E25 /* Pods-TheMartianTimes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -682,6 +925,7 @@
 		};
 		81E6DF422388A08900BA31A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54E4C04C2AD15EBF0E7E5D4F /* Pods-TheMartianTimes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -701,6 +945,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8144D20223A465E80089AFDF /* Build configuration list for PBXNativeTarget "TheMartianTimesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8144D20023A465E80089AFDF /* Debug */,
+				8144D20123A465E80089AFDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		81E6DF292388A08700BA31A6 /* Build configuration list for PBXProject "TheMartianTimes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

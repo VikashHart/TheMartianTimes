@@ -40,7 +40,7 @@ class ListVCViewModel: ListVCViewModeling {
     private var originalArticles: [FormattedArticle] = []
     private var translatedArticles: [FormattedArticle] = []
 
-    private let translator: Translator
+    private let translator: Translatable
     private let userDefaults = Defaults()
 
     var onDataRecieved: (() -> Void)?
@@ -52,7 +52,7 @@ class ListVCViewModel: ListVCViewModeling {
          numberOfCells: CGFloat = 1,
          selectedSegment: Int = 0,
          apiClient: ArticleRetrievable = NewsAPIClient(),
-         translator: Translator = Translator(),
+         translator: Translatable = Translator(),
          currentLanguage: LanguageType = LanguageType.english) {
         self.cellSpacing = cellSpacing
         self.numberOfCells = numberOfCells

@@ -1,6 +1,10 @@
 import Foundation
 
-class Translator {
+protocol Translatable {
+    func translateArticle(article: FormattedArticle) -> FormattedArticle
+}
+
+class Translator: Translatable {
     private let valid = CharacterSet.alphanumerics
     private let combinedSet = CharacterSet.decimalDigits.union(.punctuationCharacters).union(.symbols)
 
